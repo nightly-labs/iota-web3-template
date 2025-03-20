@@ -121,24 +121,17 @@ const StickyHeader: React.FC = () => {
               ></ActionStarryButton>
               <ActionStarryButton
                 onClick={async () => {
-                  const signMessage = async () => {
+                  try {
                     const adapter = await getAdapter();
                     console.log(adapter);
                     await adapter.signPersonalMessage({
                       message: new TextEncoder().encode("I love Nightly 🦊"),
                       account: userAccount,
                     });
-                  };
-                  toast.promise(signMessage, {
-                    loading: "Signing message...",
-                    success: (_) => {
-                      return `Message signed!`;
-                    },
-                    error: (error) => {
-                      console.log(error);
-                      return "Operation has been rejected!";
-                    },
-                  });
+                    toast.success(`Message signed!`);
+                  } catch (error) {
+                    toast.error(`Operation has been rejected!`);
+                  }
                 }}
                 name="Sign Message"
               ></ActionStarryButton>
