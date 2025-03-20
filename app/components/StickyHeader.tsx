@@ -123,6 +123,7 @@ const StickyHeader: React.FC = () => {
                 onClick={async () => {
                   const signMessage = async () => {
                     const adapter = await getAdapter();
+                    console.log(adapter);
                     await adapter.signPersonalMessage({
                       message: new TextEncoder().encode("I love Nightly 🦊"),
                       account: userAccount,
