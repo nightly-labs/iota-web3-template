@@ -131,6 +131,7 @@ const StickyHeader: React.FC = () => {
                     console.log(signed);
                     toast.success(`Message signed!`);
                   } catch (error) {
+                    console.log(error);
                     toast.error(`Operation has been rejected!`);
                   }
                 }}
