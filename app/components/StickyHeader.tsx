@@ -75,7 +75,7 @@ const StickyHeader: React.FC = () => {
             <>
               <ActionStarryButton
                 onClick={async () => {
-                  const signTransaction = async () => {
+                  try {
                     const adapter = await getAdapter();
                     const transaction = new Transaction();
                     const coin = transaction.splitCoins(transaction.gas, [
@@ -93,7 +93,7 @@ const StickyHeader: React.FC = () => {
                       account: userAccount,
                     });
                     console.log(txid);
-                    toast.success("Transaction send!", {
+                    toast.success("Transaction sent!", {
                       action: {
                         label: "Show Transaction ",
                         onClick: () => {
@@ -105,17 +105,9 @@ const StickyHeader: React.FC = () => {
                         },
                       },
                     });
-                  };
-                  toast.promise(signTransaction, {
-                    loading: "Signing Transaction...",
-                    success: (_) => {
-                      return `Transaction signed!`;
-                    },
-                    error: (error) => {
-                      console.log(error);
-                      return "Operation has been rejected!";
-                    },
-                  });
+                  } catch (error) {
+                    toast.error("Operation has been rejected!");
+                  }
                 }}
                 name="Sign Transaction"
               ></ActionStarryButton>
@@ -123,15 +115,12 @@ const StickyHeader: React.FC = () => {
                 onClick={async () => {
                   try {
                     const adapter = await getAdapter();
-                    console.log(adapter);
-                    const signed = await adapter.signPersonalMessage({
+                    await adapter.signPersonalMessage({
                       message: new TextEncoder().encode("I love Nightly 🦊"),
                       account: userAccount,
                     });
-                    console.log(signed);
                     toast.success(`Message signed!`);
                   } catch (error) {
-                    console.log(error);
                     toast.error(`Operation has been rejected!`);
                   }
                 }}
