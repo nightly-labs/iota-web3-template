@@ -1,4 +1,4 @@
-# 🌟 Sui Web3 Template 🌟
+# 🌟 IOTA Web3 Template 🌟
 
 Elevate your IOTA blockchain development experience with this robust template powered by Next.js and integrated with [Nightly Connect](https://connect.nightly.app/docs/) for seamless wallet management. This template provides you with the core building blocks to jump-start your IOTA project!
 
