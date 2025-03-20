@@ -124,10 +124,11 @@ const StickyHeader: React.FC = () => {
                   try {
                     const adapter = await getAdapter();
                     console.log(adapter);
-                    await adapter.signPersonalMessage({
+                    const signed = await adapter.signPersonalMessage({
                       message: new TextEncoder().encode("I love Nightly 🦊"),
                       account: userAccount,
                     });
+                    console.log(signed);
                     toast.success(`Message signed!`);
                   } catch (error) {
                     toast.error(`Operation has been rejected!`);
