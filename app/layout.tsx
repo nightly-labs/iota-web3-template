@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "IOTA Template App",
     description:
       "Start your IOTA journey here, without unnecessary configuration and setup. Just clone it and code on top of it. Powered by Nightly Wallet.",
-    images: "https://iota-web3-template.nightly.app/preview.png",
+    images: "https://iota-web3-template.nightly.app/preview.png?v2",
     card: "summary_large_image",
     site: "@nightly_app",
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "IOTA Template App",
     description:
       "Start your IOTA journey here, without unnecessary configuration and setup. Just clone it and code on top of it. Powered by Nightly Wallet.",
-    images: "https://iota-web3-template.nightly.app/preview.png",
+    images: "https://iota-web3-template.nightly.app/preview.png?v2",
     url: "https://iota-web3-template.nightly.app",
     type: "website",
   },
